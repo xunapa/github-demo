@@ -1,0 +1,34 @@
+<main>
+    <div class="container body-lastName">
+        <div class="row">
+            <div class="col-md-12">
+                <article>
+                    <header>
+                        <h2 th:text="${contact.firstName}"></h2>
+                    </header>
+
+                    <p th:text="${contact.lastName}"> </p>
+
+                    <p th:text="${contact.mobile}"> </p>
+
+                    <p th:text="${contact.email}"> </p>
+
+                    <small class="author" th:text="${contact.author.fullName}"></small>
+
+                    <footer>
+
+                        <div class="pull-right">
+
+                            <th:block sec:authorize="isAuthenticated()">
+                            <a class="btn btn-success btn-xs" th:href="@{/contact/edit/{id}(id = ${contact.id})}">Edit</a>
+                            <a class="btn btn-danger btn-xs" th:href="@{/contact/delete/{id}(id = ${contact.id})}">Delete</a>
+                            </th:block>
+
+                            <a class="btn btn-default btn-xs" th:href="@{/}">back &raquo;</a>
+                        </div>
+                    </footer>
+                </article>
+            </div>
+        </div>
+    </div>
+</main>
